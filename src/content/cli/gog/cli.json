@@ -1,0 +1,29 @@
+{
+  "name": "gog",
+  "description": "Fast, script-friendly CLI for Gmail, Calendar, Drive, Docs, Sheets, and 15+ Google Workspace services with JSON-first output.",
+  "category": "cloud",
+  "homepage": "https://gogcli.sh",
+  "github": "https://github.com/steipete/gogcli",
+  "install": {
+    "brew": "brew install gogcli",
+    "aur": "yay -S gogcli",
+    "source": "git clone https://github.com/steipete/gogcli.git && cd gogcli && make"
+  },
+  "commands": [
+    { "name": "gmail search", "syntax": "gog gmail search 'query' --max 10", "description": "Search Gmail messages with Gmail query syntax" },
+    { "name": "calendar events", "syntax": "gog calendar events primary --today", "description": "List today's calendar events" },
+    { "name": "drive search", "syntax": "gog drive search 'query' --max 20", "description": "Search files across Google Drive" },
+    { "name": "docs cat", "syntax": "gog docs cat <docId>", "description": "Read a Google Doc's content as plain text" },
+    { "name": "sheets get", "syntax": "gog sheets get <spreadsheetId> 'Sheet1!A1:B10'", "description": "Read cell values from a Google Sheet" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and read Gmail messages to gather context for tasks",
+      "Check calendar availability and create events for scheduling workflows",
+      "Search and download files from Google Drive for analysis",
+      "Read and update Google Sheets data as a structured data source",
+      "Send Gmail messages or Chat notifications as part of automated pipelines"
+    ],
+    "example_workflow": "gog gmail search 'from:client newer_than:1d' --json --max 5 | jq '.[0].threadId' | xargs -I{} gog gmail thread get {} --include-body"
+  }
+}
