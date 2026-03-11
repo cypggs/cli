@@ -1,0 +1,24 @@
+{
+  "name": "gemini-cli",
+  "description": "Google's Gemini AI in the terminal — prompt, chat, and generate content from the command line.",
+  "category": "ai",
+  "homepage": "https://github.com/google-gemini/gemini-cli",
+  "github": "https://github.com/google-gemini/gemini-cli",
+  "install": {
+    "npm": "npm install -g @anthropic-ai/gemini-cli",
+    "npx": "npx @google/gemini-cli"
+  },
+  "commands": [
+    { "name": "prompt", "syntax": "gemini 'your prompt here'", "description": "Send a one-off prompt to Gemini" },
+    { "name": "chat", "syntax": "gemini chat", "description": "Start an interactive chat session" },
+    { "name": "generate", "syntax": "gemini generate --type code 'build a REST API'", "description": "Generate content with type hints" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Generate code or text as part of an automated pipeline",
+      "Use as a sub-agent for complex reasoning tasks",
+      "Transform or summarize piped input"
+    ],
+    "example_workflow": "cat README.md | gemini 'Summarize this project in 3 bullet points'"
+  }
+}

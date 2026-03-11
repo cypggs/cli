@@ -1,0 +1,26 @@
+{
+  "name": "kubectl",
+  "description": "Kubernetes command-line tool for managing clusters, deploying apps, and inspecting resources.",
+  "category": "cloud",
+  "homepage": "https://kubernetes.io/docs/reference/kubectl/",
+  "github": "https://github.com/kubernetes/kubectl",
+  "install": {
+    "brew": "brew install kubectl",
+    "apt": "sudo apt-get install -y kubectl",
+    "curl": "curl -LO https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  },
+  "commands": [
+    { "name": "get", "syntax": "kubectl get <resource>", "description": "List resources (pods, services, deployments, etc.)" },
+    { "name": "apply", "syntax": "kubectl apply -f <file>", "description": "Apply a configuration from a YAML/JSON file" },
+    { "name": "logs", "syntax": "kubectl logs <pod>", "description": "Stream logs from a running pod" },
+    { "name": "exec", "syntax": "kubectl exec -it <pod> -- <command>", "description": "Execute a command inside a running container" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Check pod status and health in a cluster",
+      "Deploy or update applications via manifests",
+      "Debug failing containers by reading logs or exec-ing in"
+    ],
+    "example_workflow": "kubectl get pods -n production --no-headers | grep -v Running && kubectl logs <failing-pod> --tail=50"
+  }
+}

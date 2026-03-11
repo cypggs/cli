@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | CLI520</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logo">CLI520</a>
+      <span class="tagline">AI-Native CLI Registry</span>
+      <a href="/api/cli-index.json" class="api-link">JSON API</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>CLI520 — A registry of CLI tools for AI agents. Data is embedded as machine-readable JSON in every page.</p>
+    </footer>
+  </body>
+</html>

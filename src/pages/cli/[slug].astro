@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('cli');
+  return tools.map(tool => ({
+    params: { slug: tool.data.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+
+const cliJsonPath = path.join(process.cwd(), 'src', 'content', 'cli', tool.data.slug, 'cli.json');
+const cliData = JSON.parse(fs.readFileSync(cliJsonPath, 'utf-8'));
+---
+<Base title={tool.data.name}>
+  <a href="/">&larr; Back to registry</a>
+
+  <h1>{tool.data.name} <span class={`badge badge-${tool.data.category}`}>{tool.data.category}</span></h1>
+  <p><em>{tool.data.tagline}</em></p>
+
+  <section>
+    <Content />
+  </section>
+
+  <h2>Install</h2>
+  <div class="install-grid">
+    {Object.entries(cliData.install).map(([method, cmd]) => (
+      <pre><code><strong>{method}:</strong> {cmd}</code></pre>
+    ))}
+  </div>
+
+  <h2>Commands</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Syntax</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      {cliData.commands.map((cmd: any) => (
+        <tr>
+          <td><code>{cmd.name}</code></td>
+          <td><code>{cmd.syntax}</code></td>
+          <td>{cmd.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Links</h2>
+  <ul>
+    {cliData.homepage && <li><a href={cliData.homepage}>Homepage</a></li>}
+    {cliData.github && <li><a href={cliData.github}>GitHub</a></li>}
+  </ul>
+
+  <h2>Agent Usage Example</h2>
+  <p><strong>Use cases:</strong></p>
+  <ul>
+    {cliData.agent_metadata.use_cases.map((uc: string) => <li>{uc}</li>)}
+  </ul>
+  <p><strong>Example workflow:</strong></p>
+  <pre><code>{cliData.agent_metadata.example_workflow}</code></pre>
+
+  <script type="application/json" id="cli-metadata" set:html={JSON.stringify(cliData, null, 2)} />
+</Base>

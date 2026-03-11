@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const tools = await getCollection('cli');
+
+const categoryLabels: Record<string, string> = {
+  ai: 'AI',
+  cloud: 'Cloud',
+  dev: 'Dev',
+  knowledge: 'Knowledge',
+  files: 'Files',
+  search: 'Search',
+};
+
+const categoryOrder = ['ai', 'cloud', 'dev', 'knowledge', 'files', 'search'];
+
+const grouped: Record<string, typeof tools> = {};
+for (const tool of tools) {
+  const cat = tool.data.category;
+  if (!grouped[cat]) grouped[cat] = [];
+  grouped[cat].push(tool);
+}
+---
+<Base title="Home">
+  <h1>CLI520 — CLI Tools for AI Agents</h1>
+  <p>A curated registry of command-line tools, optimized for both humans and AI agents. Every tool page includes machine-readable JSON metadata.</p>
+  <p><a href="/api/cli-index.json"><code>GET /api/cli-index.json</code></a> — full index for programmatic access.</p>
+
+  {categoryOrder.filter(cat => grouped[cat]).map(cat => (
+    <section>
+      <h2><span class={`badge badge-${cat}`}>{categoryLabels[cat]}</span></h2>
+      <ul class="tool-list">
+        {grouped[cat].map(tool => (
+          <li>
+            <a href={`/cli/${tool.data.slug}`}>{tool.data.name}</a>
+            <span class="tl">{tool.data.tagline}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Base>

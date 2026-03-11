@@ -1,0 +1,25 @@
+{
+  "name": "gh",
+  "description": "GitHub's official CLI — manage PRs, issues, repos, actions, and more from the terminal.",
+  "category": "dev",
+  "homepage": "https://cli.github.com/",
+  "github": "https://github.com/cli/cli",
+  "install": {
+    "brew": "brew install gh",
+    "apt": "sudo apt install gh",
+    "winget": "winget install GitHub.cli"
+  },
+  "commands": [
+    { "name": "pr create", "syntax": "gh pr create --title <title> --body <body>", "description": "Create a new pull request" },
+    { "name": "issue list", "syntax": "gh issue list", "description": "List issues in the current repository" },
+    { "name": "repo clone", "syntax": "gh repo clone <owner/repo>", "description": "Clone a GitHub repository" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Create pull requests after code changes",
+      "List and triage open issues",
+      "Clone repositories for analysis"
+    ],
+    "example_workflow": "gh issue list --label bug --state open && gh pr create --title 'Fix: resolve crash' --body 'Fixes #42'"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "obsidian-cli",
+  "description": "CLI tool for interacting with Obsidian vaults — search, read, and create notes from the terminal.",
+  "category": "knowledge",
+  "homepage": "https://github.com/Yakitrak/obsidian-cli",
+  "github": "https://github.com/Yakitrak/obsidian-cli",
+  "install": {
+    "brew": "brew install yakitrak/yakitrak/obsidian-cli",
+    "go": "go install github.com/Yakitrak/obsidian-cli@latest"
+  },
+  "commands": [
+    { "name": "search", "syntax": "obsidian-cli search <query>", "description": "Full-text search across vault notes" },
+    { "name": "read", "syntax": "obsidian-cli read <note-path>", "description": "Read a note's contents as markdown" },
+    { "name": "create", "syntax": "obsidian-cli create <note-path>", "description": "Create a new note with content from stdin" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Retrieve relevant notes from a user's knowledge base",
+      "Save conversation summaries or research results to Obsidian",
+      "Search for prior context before answering questions"
+    ],
+    "example_workflow": "obsidian-cli search 'project requirements' | head -5 && obsidian-cli read 'Projects/current-spec.md'"
+  }
+}

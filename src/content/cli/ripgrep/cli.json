@@ -1,0 +1,26 @@
+{
+  "name": "ripgrep",
+  "description": "Blazingly fast recursive search tool — faster than grep, respects .gitignore, supports regex.",
+  "category": "search",
+  "homepage": "https://github.com/BurntSushi/ripgrep",
+  "github": "https://github.com/BurntSushi/ripgrep",
+  "install": {
+    "brew": "brew install ripgrep",
+    "apt": "sudo apt install ripgrep",
+    "cargo": "cargo install ripgrep"
+  },
+  "commands": [
+    { "name": "rg", "syntax": "rg <pattern> [path]", "description": "Search for a regex pattern in files" },
+    { "name": "rg -t", "syntax": "rg -t <type> <pattern>", "description": "Search only in files of a specific type" },
+    { "name": "rg -l", "syntax": "rg -l <pattern>", "description": "List only filenames containing matches" },
+    { "name": "rg --json", "syntax": "rg --json <pattern>", "description": "Output results in JSON format for programmatic use" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search codebases for function definitions or references",
+      "Find configuration values across project files",
+      "Locate TODO/FIXME comments for task prioritization"
+    ],
+    "example_workflow": "rg --json 'TODO|FIXME' --type py | jq '.data.lines.text'"
+  }
+}
