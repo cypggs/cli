@@ -1,0 +1,30 @@
+{
+  "name": "supabase",
+  "description": "CLI for local development, database migrations, Edge Functions, and deployment of Supabase projects.",
+  "category": "cloud",
+  "homepage": "https://supabase.com/docs/reference/cli/introduction",
+  "github": "https://github.com/supabase/cli",
+  "install": {
+    "brew": "brew install supabase/tap/supabase",
+    "npm": "npm install supabase --save-dev",
+    "npx": "npx supabase --help",
+    "scoop": "scoop bucket add supabase https://github.com/supabase/scoop-bucket.git && scoop install supabase"
+  },
+  "commands": [
+    { "name": "start", "syntax": "supabase start", "description": "Start the local Supabase development stack" },
+    { "name": "db diff", "syntax": "supabase db diff -f <migration-name>", "description": "Generate a migration by diffing local schema changes" },
+    { "name": "db push", "syntax": "supabase db push", "description": "Deploy local migrations to the remote database" },
+    { "name": "gen types", "syntax": "supabase gen types typescript --local", "description": "Generate TypeScript types from the database schema" },
+    { "name": "functions deploy", "syntax": "supabase functions deploy <function-name>", "description": "Deploy an Edge Function to your Supabase project" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Scaffold and manage database migrations for Supabase projects",
+      "Generate typed client code from database schema for type-safe queries",
+      "Deploy serverless Edge Functions as part of CI/CD pipelines",
+      "Inspect database performance with bloat, locks, and outlier queries",
+      "Manage project secrets and configuration across environments"
+    ],
+    "example_workflow": "supabase db diff -f add_users_table && supabase db push && supabase gen types typescript --project-id <ref> > src/types/supabase.ts"
+  }
+}
