@@ -1,0 +1,28 @@
+{
+  "name": "jike-cli",
+  "description": "Jike (即刻) in your terminal — browse feeds, search posts, publish, and interact from the command line.",
+  "category": "knowledge",
+  "homepage": "https://github.com/cypggs/jike-cli",
+  "github": "https://github.com/cypggs/jike-cli",
+  "install": {
+    "uv": "uv tool install jike-cli",
+    "pipx": "pipx install jike-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "jike login", "description": "Authenticate via QR code in Jike app" },
+    { "name": "feed", "syntax": "jike feed -n 10", "description": "Browse your following feed" },
+    { "name": "search", "syntax": "jike search <query>", "description": "Search posts by keyword" },
+    { "name": "post", "syntax": "jike post <message>", "description": "Publish a new post" },
+    { "name": "profile", "syntax": "jike profile <username>", "description": "View a user's profile" },
+    { "name": "comment", "syntax": "jike comment <post_id> <text>", "description": "Comment on a post" },
+    { "name": "notifications", "syntax": "jike notifications", "description": "View your notifications" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Browse and summarize Jike feed content",
+      "Search Jike posts on specific topics",
+      "Post updates and interact with the Jike community"
+    ],
+    "example_workflow": "jike search '独立开发' --json | jq '.[].content'"
+  }
+}
