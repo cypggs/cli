@@ -1,0 +1,28 @@
+{
+  "name": "rdt-cli",
+  "description": "Reddit in your terminal — browse feeds, read posts, search, upvote, save, and subscribe via reverse-engineered API.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/rdt-cli",
+  "github": "https://github.com/jackwener/rdt-cli",
+  "install": {
+    "uv": "uv tool install rdt-cli",
+    "pipx": "pipx install rdt-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "rdt login", "description": "Extract and save browser cookies for authentication" },
+    { "name": "feed", "syntax": "rdt feed", "description": "Display your Reddit home feed" },
+    { "name": "sub", "syntax": "rdt sub <subreddit>", "description": "Browse a specific subreddit" },
+    { "name": "search", "syntax": "rdt search <query>", "description": "Full-text search across Reddit" },
+    { "name": "read", "syntax": "rdt read <post_id>", "description": "Read a specific post with comments" },
+    { "name": "show", "syntax": "rdt show <index>", "description": "Read the Nth post from the last listing" },
+    { "name": "export", "syntax": "rdt export <query> --format csv", "description": "Export search results to CSV or JSON" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Browse and summarize Reddit discussions on a topic",
+      "Search Reddit for community feedback on tools or libraries",
+      "Export Reddit threads for analysis or reporting"
+    ],
+    "example_workflow": "rdt search 'best CLI tools 2025' --json | jq '.[].title'"
+  }
+}
