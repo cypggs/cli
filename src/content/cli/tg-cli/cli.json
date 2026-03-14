@@ -1,0 +1,28 @@
+{
+  "name": "tg-cli",
+  "description": "Telegram in your terminal — local-first sync, search, export, and analytics via MTProto and SQLite.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/tg-cli",
+  "github": "https://github.com/jackwener/tg-cli",
+  "install": {
+    "uv": "uv tool install kabi-tg-cli",
+    "pipx": "pipx install kabi-tg-cli"
+  },
+  "commands": [
+    { "name": "refresh", "syntax": "tg refresh", "description": "Refresh all current dialogs" },
+    { "name": "sync", "syntax": "tg sync <chat_name>", "description": "Sync a specific chat's messages" },
+    { "name": "search", "syntax": "tg search <keyword>", "description": "Full-text search across synced messages" },
+    { "name": "recent", "syntax": "tg recent --hours 24 --limit 20", "description": "View recent messages within a time window" },
+    { "name": "today", "syntax": "tg today --sync-first", "description": "View today's messages with optional sync" },
+    { "name": "export", "syntax": "tg export <chat_name> -f yaml -o messages.yaml", "description": "Export messages to file" },
+    { "name": "send", "syntax": "tg send <chat_name> <message>", "description": "Send a message to a chat" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and retrieve Telegram conversations by keyword",
+      "Analyze messaging patterns and top senders",
+      "Export chat history for archival or analysis"
+    ],
+    "example_workflow": "tg refresh && tg search 'meeting' --hours 48 --yaml"
+  }
+}

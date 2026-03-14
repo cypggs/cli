@@ -1,0 +1,28 @@
+{
+  "name": "xhs-cli",
+  "description": "小红书命令行工具 — 搜索、阅读、点赞、收藏、评论，全在终端完成 | Xiaohongshu CLI via Camoufox.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/xhs-cli",
+  "github": "https://github.com/jackwener/xhs-cli",
+  "install": {
+    "uv": "uv tool install xhs-cli",
+    "pipx": "pipx install xhs-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "xhs login", "description": "Authenticate via Chrome cookies or QR code" },
+    { "name": "search", "syntax": "xhs search <keyword>", "description": "Search notes by keyword" },
+    { "name": "read", "syntax": "xhs read <note_id> --comments", "description": "Read a post with comments" },
+    { "name": "like", "syntax": "xhs like <note_id>", "description": "Like a post" },
+    { "name": "favorite", "syntax": "xhs favorite <note_id>", "description": "Bookmark a post" },
+    { "name": "comment", "syntax": "xhs comment <note_id> <text>", "description": "Comment on a post" },
+    { "name": "post", "syntax": "xhs post <title> --image <img> --content <text>", "description": "Publish an image post" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and read Xiaohongshu posts from the terminal",
+      "Interact with posts via like, favorite, and comment",
+      "Export search results in JSON for analysis"
+    ],
+    "example_workflow": "xhs search 'coffee' --json | jq '.[].title'"
+  }
+}

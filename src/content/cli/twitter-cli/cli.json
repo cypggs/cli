@@ -1,0 +1,28 @@
+{
+  "name": "twitter-cli",
+  "description": "Twitter/X in your terminal — browse feeds, search, post, and interact without official API keys.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/twitter-cli",
+  "github": "https://github.com/jackwener/twitter-cli",
+  "install": {
+    "uv": "uv tool install twitter-cli",
+    "pipx": "pipx install twitter-cli"
+  },
+  "commands": [
+    { "name": "feed", "syntax": "twitter feed", "description": "Browse your home timeline" },
+    { "name": "search", "syntax": "twitter search <query>", "description": "Search tweets with filters" },
+    { "name": "bookmarks", "syntax": "twitter bookmarks", "description": "View your bookmarked tweets" },
+    { "name": "user", "syntax": "twitter user <username>", "description": "View a user's profile" },
+    { "name": "post", "syntax": "twitter post <text>", "description": "Post a new tweet" },
+    { "name": "reply", "syntax": "twitter reply <tweet_id> <text>", "description": "Reply to a tweet" },
+    { "name": "user-posts", "syntax": "twitter user-posts <username> --max 20 --json", "description": "Get a user's recent posts in JSON format" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Monitor Twitter discussions on specific topics",
+      "Search and export tweets for analysis",
+      "Post updates and interact with tweets programmatically"
+    ],
+    "example_workflow": "twitter search 'Claude Code' -t Latest --max 50 --json | jq '.[].text'"
+  }
+}

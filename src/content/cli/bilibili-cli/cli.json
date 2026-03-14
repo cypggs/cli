@@ -1,0 +1,28 @@
+{
+  "name": "bilibili-cli",
+  "description": "Bilibili in your terminal — browse videos, trending content, search, and interact from the command line.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/bilibili-cli",
+  "github": "https://github.com/jackwener/bilibili-cli",
+  "install": {
+    "uv": "uv tool install bilibili-cli",
+    "pipx": "pipx install bilibili-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "bili login", "description": "Authenticate via QR code" },
+    { "name": "video", "syntax": "bili video <bvid>", "description": "View video details" },
+    { "name": "hot", "syntax": "bili hot --max 10", "description": "Browse trending videos" },
+    { "name": "rank", "syntax": "bili rank --day 7", "description": "View site-wide rankings" },
+    { "name": "search", "syntax": "bili search <keyword>", "description": "Search videos and content" },
+    { "name": "feed", "syntax": "bili feed", "description": "Browse follower timeline" },
+    { "name": "audio", "syntax": "bili audio <bvid> --segment 60", "description": "Extract and segment video audio into WAV files" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and summarize Bilibili video content via subtitles",
+      "Monitor trending videos and rankings",
+      "Extract video audio for speech recognition or analysis"
+    ],
+    "example_workflow": "bili video BV1ABcsztEcY --subtitle --yaml | head -50"
+  }
+}

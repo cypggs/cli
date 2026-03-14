@@ -1,0 +1,28 @@
+{
+  "name": "weibo-cli",
+  "description": "Weibo (微博) in your terminal — browse hot topics, read timelines, view user profiles, and explore posts.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/weibo-cli",
+  "github": "https://github.com/jackwener/weibo-cli",
+  "install": {
+    "uv": "uv tool install kabi-weibo-cli",
+    "pipx": "pipx install kabi-weibo-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "weibo login", "description": "Authenticate via browser cookies or QR code" },
+    { "name": "hot", "syntax": "weibo hot", "description": "View real-time hot search topics" },
+    { "name": "feed", "syntax": "weibo feed", "description": "Browse your home feed timeline" },
+    { "name": "detail", "syntax": "weibo detail <mblogid>", "description": "Read a specific post with full details" },
+    { "name": "comments", "syntax": "weibo comments <mblogid>", "description": "View comment threads on a post" },
+    { "name": "profile", "syntax": "weibo profile <uid>", "description": "View a user's profile information" },
+    { "name": "weibos", "syntax": "weibo weibos <uid>", "description": "Browse a user's post history" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Monitor trending topics and hot searches on Weibo",
+      "Read and analyze user timelines and post engagement",
+      "Extract Weibo discussions for sentiment analysis"
+    ],
+    "example_workflow": "weibo hot --json | jq '.[].title'"
+  }
+}

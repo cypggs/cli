@@ -1,0 +1,28 @@
+{
+  "name": "discord-cli",
+  "description": "Discord in your terminal — local-first sync, search, export, and analytics via SQLite.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/discord-cli",
+  "github": "https://github.com/jackwener/discord-cli",
+  "install": {
+    "uv": "uv tool install kabi-discord-cli",
+    "pipx": "pipx install kabi-discord-cli"
+  },
+  "commands": [
+    { "name": "auth", "syntax": "discord auth --save", "description": "Extract and store token from browser session" },
+    { "name": "guilds", "syntax": "discord dc guilds", "description": "List joined servers" },
+    { "name": "sync-all", "syntax": "discord dc sync-all -n 500", "description": "Bootstrap database with message history" },
+    { "name": "search", "syntax": "discord search <keyword> -c <channel>", "description": "Full-text search across synced messages" },
+    { "name": "recent", "syntax": "discord recent -n 50", "description": "View latest messages" },
+    { "name": "today", "syntax": "discord today", "description": "View today's messages" },
+    { "name": "export", "syntax": "discord export <channel> -f json -o file.json", "description": "Export messages to file" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search Discord conversations by keyword and channel",
+      "Analyze messaging activity and timeline patterns",
+      "Export chat history for archival or reporting"
+    ],
+    "example_workflow": "discord dc sync-all -n 200 && discord search 'bug report' --json"
+  }
+}

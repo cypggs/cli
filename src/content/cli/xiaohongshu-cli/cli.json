@@ -1,0 +1,28 @@
+{
+  "name": "xiaohongshu-cli",
+  "description": "Xiaohongshu (小红书) in your terminal — search notes, read posts, interact, and publish via reverse-engineered API.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/xiaohongshu-cli",
+  "github": "https://github.com/jackwener/xiaohongshu-cli",
+  "install": {
+    "uv": "uv tool install xiaohongshu-cli",
+    "pipx": "pipx install xiaohongshu-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "xhs login", "description": "Authenticate via browser cookies or QR code" },
+    { "name": "search", "syntax": "xhs search <keyword>", "description": "Search notes by keyword" },
+    { "name": "read", "syntax": "xhs read <index>", "description": "Read a post from the last listing" },
+    { "name": "feed", "syntax": "xhs feed", "description": "Browse recommendation feed" },
+    { "name": "hot", "syntax": "xhs hot -c <category>", "description": "Browse hot posts by category" },
+    { "name": "like", "syntax": "xhs like <index>", "description": "Like a post from the last listing" },
+    { "name": "post", "syntax": "xhs post --title <title> --body <text> --images <img>", "description": "Publish an image post" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and summarize Xiaohongshu discussions on a topic",
+      "Monitor trending content and hot categories",
+      "Extract post data for content analysis"
+    ],
+    "example_workflow": "xhs search '咖啡推荐' --json | jq '.[].title'"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "boss-cli",
+  "description": "BOSS 直聘 in your terminal — search jobs, view recommendations, manage applications, and chat with recruiters via reverse-engineered API.",
+  "category": "knowledge",
+  "homepage": "https://github.com/jackwener/boss-cli",
+  "github": "https://github.com/jackwener/boss-cli",
+  "install": {
+    "uv": "uv tool install kabi-boss-cli",
+    "pipx": "pipx install kabi-boss-cli"
+  },
+  "commands": [
+    { "name": "login", "syntax": "boss login", "description": "Authenticate via browser cookies or QR code" },
+    { "name": "search", "syntax": "boss search <keyword>", "description": "Search jobs with optional filters" },
+    { "name": "show", "syntax": "boss show <index>", "description": "View job details by index from last listing" },
+    { "name": "recommend", "syntax": "boss recommend", "description": "Get personalized job recommendations" },
+    { "name": "export", "syntax": "boss export <keyword> -o file.csv", "description": "Export search results to CSV or JSON" },
+    { "name": "greet", "syntax": "boss greet <id>", "description": "Send greeting to a recruiter" },
+    { "name": "batch-greet", "syntax": "boss batch-greet <keyword> -n 5", "description": "Bulk outreach to recruiters with rate-limiting" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Search and filter job listings by keyword and location",
+      "Export job search results for analysis",
+      "Automate recruiter outreach with batch greetings"
+    ],
+    "example_workflow": "boss search 'Python开发' --city 北京 --json | jq '.[].title'"
+  }
+}
