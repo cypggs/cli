@@ -48,6 +48,8 @@ nav {
 nav .logo { font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--fg); }
 nav .tagline { color: var(--muted); font-size: 0.85rem; flex: 1; }
 nav .api-link { font-size: 0.8rem; color: var(--accent); font-family: monospace; }
+nav .github-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+nav .github-link:hover { color: var(--accent); }
 
 a { color: var(--accent); }
 
