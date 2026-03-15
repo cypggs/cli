@@ -1,0 +1,27 @@
+{
+  "name": "opencli",
+  "description": "Turn any website into a CLI — reuses Chrome login sessions to access 28+ commands across 16 platforms.",
+  "category": "ai",
+  "homepage": "https://github.com/jackwener/opencli",
+  "github": "https://github.com/jackwener/opencli",
+  "install": {
+    "npm": "npm install -g @jackwener/opencli"
+  },
+  "commands": [
+    { "name": "list", "syntax": "opencli list", "description": "View all available commands and platforms" },
+    { "name": "explore", "syntax": "opencli explore <url>", "description": "AI-powered API discovery for a website" },
+    { "name": "synthesize", "syntax": "opencli synthesize <url>", "description": "Generate YAML adapter from discovered APIs" },
+    { "name": "generate", "syntax": "opencli generate <url>", "description": "One-shot exploration-to-registration workflow" },
+    { "name": "hackernews top", "syntax": "opencli hackernews top --limit 5", "description": "Fetch top Hacker News stories (public API)" },
+    { "name": "bilibili hot", "syntax": "opencli bilibili hot --limit 5", "description": "Browse Bilibili trending videos (browser)" },
+    { "name": "zhihu hot", "syntax": "opencli zhihu hot -f json", "description": "Fetch Zhihu hot topics in JSON format" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Access any website as a CLI using existing browser sessions",
+      "Discover and generate adapters for new platforms via AI",
+      "Extract structured data from websites in JSON/CSV format"
+    ],
+    "example_workflow": "opencli hackernews top --limit 10 -f json | jq '.[].title'"
+  }
+}
