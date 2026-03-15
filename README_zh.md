@@ -68,6 +68,13 @@ Markdown 正文。
 - Astro Content Collections + Zod 模式校验
 - 无需 JavaScript 运行时 — 纯静态 HTML + JSON
 
+## 致谢
+
+感谢以下项目和贡献者对本注册表的贡献：
+
+- [@jackwener](https://github.com/jackwener) — [rdt-cli](https://github.com/jackwener/rdt-cli)、[boss-cli](https://github.com/jackwener/boss-cli)、[weibo-cli](https://github.com/jackwener/weibo-cli)、[tg-cli](https://github.com/jackwener/tg-cli)、[twitter-cli](https://github.com/jackwener/twitter-cli)、[xiaohongshu-cli](https://github.com/jackwener/xiaohongshu-cli)、[discord-cli](https://github.com/jackwener/discord-cli)、[xhs-cli](https://github.com/jackwener/xhs-cli)、[bilibili-cli](https://github.com/jackwener/bilibili-cli)、[opencli](https://github.com/jackwener/opencli) 等工具的作者
+- [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) — 将 GUI 应用转化为 CLI 可访问工具的灵感与方法论
+
 ## 开源协议
 
 [MIT](LICENSE)

@@ -68,6 +68,13 @@ Then run `npm run build` to verify.
 - Astro Content Collections with Zod schema validation
 - No JavaScript runtime required — pure static HTML + JSON
 
+## Acknowledgements
+
+Thanks to the following projects and contributors for enriching this registry:
+
+- [@jackwener](https://github.com/jackwener) — Author of [rdt-cli](https://github.com/jackwener/rdt-cli), [boss-cli](https://github.com/jackwener/boss-cli), [weibo-cli](https://github.com/jackwener/weibo-cli), [tg-cli](https://github.com/jackwener/tg-cli), [twitter-cli](https://github.com/jackwener/twitter-cli), [xiaohongshu-cli](https://github.com/jackwener/xiaohongshu-cli), [discord-cli](https://github.com/jackwener/discord-cli), [xhs-cli](https://github.com/jackwener/xhs-cli), [bilibili-cli](https://github.com/jackwener/bilibili-cli), [opencli](https://github.com/jackwener/opencli), and more
+- [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) — Inspiration and methodology for turning GUI applications into CLI-accessible tools
+
 ## License
 
 [MIT](LICENSE)
