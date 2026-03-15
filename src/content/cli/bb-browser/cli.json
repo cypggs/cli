@@ -1,0 +1,27 @@
+{
+  "name": "bb-browser",
+  "description": "Turn your authenticated browser into an API for AI agents — 103 commands across 36 platforms, no API keys needed.",
+  "category": "ai",
+  "homepage": "https://github.com/epiral/bb-browser",
+  "github": "https://github.com/epiral/bb-browser",
+  "install": {
+    "npm": "npm install -g bb-browser"
+  },
+  "commands": [
+    { "name": "site", "syntax": "bb-browser site <platform/command> [args]", "description": "Run a curated platform command (e.g. twitter/search, arxiv/search)" },
+    { "name": "snapshot", "syntax": "bb-browser snapshot -i", "description": "Get the accessibility tree of the current page" },
+    { "name": "click", "syntax": "bb-browser click @<index>", "description": "Click an element by accessibility index" },
+    { "name": "eval", "syntax": "bb-browser eval <js>", "description": "Execute JavaScript in the current page" },
+    { "name": "screenshot", "syntax": "bb-browser screenshot", "description": "Capture a screenshot of the current page" },
+    { "name": "network", "syntax": "bb-browser network requests --with-body --json", "description": "Capture and inspect network traffic" },
+    { "name": "site update", "syntax": "bb-browser site update", "description": "Pull latest community adapters" }
+  ],
+  "agent_metadata": {
+    "use_cases": [
+      "Multi-platform research using authenticated browser sessions",
+      "Access real-time data from sites without official APIs",
+      "Browser automation with accessibility tree navigation"
+    ],
+    "example_workflow": "bb-browser site twitter/search 'AI agent' --json --jq '.items[] | {text, likes}'"
+  }
+}
